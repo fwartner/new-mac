@@ -1,8 +1,6 @@
 #!/bin/sh
 echo "Setting up your Mac..."
 
-git clone https://github.com/fwartner/new-mac.git $HOME/.dotfiles
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Check for Oh My Zsh and install if we don't have it
@@ -42,7 +40,6 @@ mkdir $HOME/Development/Code
 mkdir $HOME/Development/Homelab
 mkdir $HOME/Development/Smarthome
 mkdir $HOME/Development/cloud37
-mkdir $HOME/Development/Websites
 
 # SSH
 echo "Setting up SSH..."
@@ -67,6 +64,7 @@ echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"
 
 echo "Setting up Spaceship..."
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # AppStore Apps
 echo "Setting up Apps from the Appstore..."
@@ -84,15 +82,4 @@ mas install 1289583905 # Pixelmator Pro
 mas install 1352778147 # Bitwarden
 
 echo "Setting up Git Repositories..."
-git clone https://github.com/fwartner/homeassistant-config.git $HOME/Development/Smarthome/ha-config
-git clone https://github.com/fwartner/home-assistant-wakewords-collection $HOME/Development/Smarthome/ha-wakewords-collection
-git clone https://github.com/fwartner/homeassistant-addons.git $HOME/Development/Smarthome/ha-addons
-git clone https://github.com/fwartner/ps5-mqtt.git $HOME/Development/Smarthome/ha-ps5-mqtt
-git clone https://github.com/fwartner/littlelink.git $HOME/Development/Websites/fwartner-link
-git clone
-
-echo "Setting up Kubernetes Toolchain..."
-curl -sLS https://get.k3sup.dev | sh
-
-echo "Setting up Devbox..."
-curl -fsSL https://get.jetpack.io/devbox | bash
+cd $HOME/Development/Smarthome

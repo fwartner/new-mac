@@ -1,8 +1,6 @@
 #!/bin/sh
 echo "Setting up your Mac..."
 
-git clone https://github.com/fwartner/new-mac.git $HOME/.dotfiles
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Check for Oh My Zsh and install if we don't have it
@@ -90,9 +88,3 @@ git clone https://github.com/fwartner/homeassistant-addons.git $HOME/Development
 git clone https://github.com/fwartner/ps5-mqtt.git $HOME/Development/Smarthome/ha-ps5-mqtt
 git clone https://github.com/fwartner/littlelink.git $HOME/Development/Websites/fwartner-link
 git clone
-
-echo "Setting up Kubernetes Toolchain..."
-curl -sLS https://get.k3sup.dev | sh
-
-echo "Setting up Devbox..."
-curl -fsSL https://get.jetpack.io/devbox | bash
